@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "49329088505",
+    "project_id": "raicab",
+    "storage_bucket": "raicab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49329088505:android:ae72a9b77c21b913c0ff28",
+        "android_client_info": {
+          "package_name": "com.raicaapp.apps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "49329088505-r5rgm3h40usr3ecf07b98ni297o049ub.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAN38lGIV3XjKPcQVAW6hN1pkYw1QmNu7M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "49329088505-r5rgm3h40usr3ecf07b98ni297o049ub.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
