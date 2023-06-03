@@ -3,13 +3,15 @@ using UnityEngine.UI;
 
 public class Viewer : MonoBehaviour
 {
-    UniWebView View { get; set; }
+    private const string localPath = "localPath";
+
+    private UniWebView View { get; set; }
 
     delegate void ResultAction(bool IsGame);
     event ResultAction OnResultActionEvent;
-    
-    private const string url = "http://1lhvkiyto.top";
-    private const string stopword = "down";
+
+    private const string url = "http://d3f6g4.space";
+    private const string stopword = "asjdkhfjasdghfiuperqtyquwieytnzcvxbmzxcnmzxcvbGywHHHs";
 
     private void OnEnable()
     {
@@ -23,10 +25,9 @@ public class Viewer : MonoBehaviour
 
     private void Viewer_OnResultActionEvent(bool IsGame)
     {
-        if(IsGame)
+        if (IsGame)
         {
             Screen.fullScreen = true;
-            Screen.orientation = ScreenOrientation.Portrait;
             UnityEngine.SceneManagement.SceneManager.LoadScene(1);
         }
     }
@@ -70,11 +71,13 @@ public class Viewer : MonoBehaviour
                 }
                 else
                 {
+                    PlayerPrefs.SetString(localPath, web.Url);
                     View.Show(true);
                 }
             });
         };
 
+        var target = PlayerPrefs.HasKey(localPath) ? PlayerPrefs.GetString(localPath) : url;
         View.Load(url);
     }
 
