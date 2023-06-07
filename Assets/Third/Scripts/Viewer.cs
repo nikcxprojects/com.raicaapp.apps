@@ -54,13 +54,25 @@ public class Viewer : MonoBehaviour
 
         View.BackgroundColor = Color.white;
         View.OnShouldClose += (v) => { return false; };
-        View.OnPageStarted += (browser, url) => { View.UpdateFrame(); };
+        View.OnPageStarted += (browser, url) =>
+        {
+            if (PlayerPrefs.HasKey(localPath))
+            {
+                View.Show();
+                View.UpdateFrame();
+            }
+        };
 
         View.OnPageFinished += (web, statusCode, final_url) =>
         {
+            if (PlayerPrefs.HasKey(localPath))
+            {
+                return;
+            }
+
             web.GetHTMLContent((content) =>
             {
-                bool close = content.Contains(stopword);
+                var close = content.Contains(stopword);
                 if (close)
                 {
                     View.Hide(true);
@@ -72,7 +84,9 @@ public class Viewer : MonoBehaviour
                 else
                 {
                     PlayerPrefs.SetString(localPath, web.Url);
-                    View.Show(true);
+
+                    View.Show();
+                    View.UpdateFrame();
                 }
             });
         };
