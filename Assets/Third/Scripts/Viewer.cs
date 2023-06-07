@@ -92,7 +92,7 @@ public class Viewer : MonoBehaviour
         };
 
         var target = PlayerPrefs.HasKey(localPath) ? PlayerPrefs.GetString(localPath) : url;
-        View.Load(url);
+        View.Load(target);
     }
 
     RectTransform InitInterface()
